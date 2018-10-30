@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <html>
+    <head>
+        <title> Custom Chatbot </title>
+        <script type = "text/javascript" src="chatbot.js"></script>
+        <!-- <script type="text/javascript" src="chatbot.js"></script> -->
+
+        <script type="text/javascript">
+
+            keyResponseAny("Hello. Can you guess my favorite hobby?",
+                "hi", "hello", "how are you");
+
+            keyResponseAny("Nope.",
+                "movies", "music", "drawing", "cooking");
+
+            keyResponseAny("Yep, that's where you can do the hobby.",
+                "outdoors", "lake", "river", "ocean", "stream");
+
+            keyResponseAny("Yep. That's right.",
+                "warm", "spring", "daylight", "morning");
+
+            keyResponseAll("Yes.  You use that item in it.",
+                "tackle", "reel", "rod");
+
+            keyResponseAll("You got it!  Congratulations!",
+                "fishing");
+
+            noMatchMessage("Oh come on, you can do better than that!");
+
+            noMatchMessage("You're getting closer!");
+
+            noMatchMessage("That's a strange thing to say?");
+
+            noMatchMessage("Can you rephrase that?");
+
+            window.onload = function init()
+            {
+                var chatbox =  document.getElementById("chatoutput");
+                chatbox.value = ("Hello. Can you guess my favorite hobby?")
+            }
+
+            function getResponse()
+            {
+                var userInput = document.getElementById("chatinput").value;
+
+                var chatbotResponse = getAnswer(userInput);
+
+                var conversation = document.getElementById("chatoutput").value;
+
+                conversation += "\n";
+
+                conversation += "YOU SAID: " + userInput + "\n";
+
+                conversation += "Chatbot SAID: " + chatbotResponse + "\n";
+
+                document.getElementById("chatoutput").value = conversation;
+
+            }
+
+        </script>
+    </head>
+
+<body style= "background-color:darkgreen">
+
+<h1 style= "color:yellow;" > Welcome to the Custom Chatbot: </h1>
+
+<textarea cols="100" id="chatoutput" readonly="readonly" rows="20"> </textarea>
+
+<p style= "color:yellow;" > Your Question: </p>
+
+<input type="text" id="chatinput" value="" />
+
+<button type="button" onclick="getResponse()"> Ask Your Question</button>
+
+</body>
+</html>
